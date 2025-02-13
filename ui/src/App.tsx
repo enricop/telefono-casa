@@ -13,15 +13,23 @@ const App = () => {
           <img src={holochainLogo} className="logo holochain" alt="holochain logo" />
         </a>
       </div>
-      <h1>Holochain React hApp</h1>
+      <h1>Telefono-Casa hApp</h1>
       <div>
         <div className="card">
           {loading ? "connecting..." : (error ? error.message : "Client is connected.")}
         </div>
         <p>
-          Import scaffolded components into <code>src/App.tsx</code> to use your hApp
+          Connecting House-Holders with House-Seekers
         </p>
-        <p className="read-the-docs">Click on the Holochain logo to learn more</p>
+        <div>
+          <button>
+            I am an House Seeker
+          </button>
+          <button>
+            I own and House
+          </button>
+        </div>
+        <>Click on the selection buttons to start</>
       </div>
     </>
   );
