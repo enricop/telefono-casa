@@ -1,0 +1,13 @@
+[package]
+name = "householding"
+version = "0.0.1"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "householding"
+
+[dependencies]
+hdk = { workspace = true }
+serde = { workspace = true }
+householding_integrity = { workspace = true }

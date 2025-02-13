@@ -1,0 +1,6 @@
+manifest_version: '1'
+name: telefono-casa
+ui:
+  bundled: '../ui/dist.zip'
+happ_manifest:
+  bundled: './telefono-casa.happ'

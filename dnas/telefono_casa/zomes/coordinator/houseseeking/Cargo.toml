@@ -1,0 +1,13 @@
+[package]
+name = "houseseeking"
+version = "0.0.1"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+name = "houseseeking"
+
+[dependencies]
+hdk = { workspace = true }
+serde = { workspace = true }
+houseseeking_integrity = { workspace = true }

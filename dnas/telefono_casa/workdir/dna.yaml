@@ -1,0 +1,43 @@
+manifest_version: '1'
+name: telefono_casa
+integrity:
+  network_seed: null
+  properties: null
+  origin_time: 1739421573941746
+  zomes:
+  - name: profile_integrity
+    hash: null
+    bundled: '../../../target/wasm32-unknown-unknown/release/profile_integrity.wasm'
+    dependencies: null
+    dylib: null
+  - name: householding_integrity
+    hash: null
+    bundled: '../../../target/wasm32-unknown-unknown/release/householding_integrity.wasm'
+    dependencies: null
+    dylib: null
+  - name: houseseeking_integrity
+    hash: null
+    bundled: '../../../target/wasm32-unknown-unknown/release/houseseeking_integrity.wasm'
+    dependencies: null
+    dylib: null
+coordinator:
+  zomes:
+  - name: profile
+    hash: null
+    bundled: '../../../target/wasm32-unknown-unknown/release/profile.wasm'
+    dependencies:
+    - name: profile_integrity
+    dylib: null
+  - name: householding
+    hash: null
+    bundled: '../../../target/wasm32-unknown-unknown/release/householding.wasm'
+    dependencies:
+    - name: householding_integrity
+    dylib: null
+  - name: houseseeking
+    hash: null
+    bundled: '../../../target/wasm32-unknown-unknown/release/houseseeking.wasm'
+    dependencies:
+    - name: houseseeking_integrity
+    dylib: null
+lineage: []

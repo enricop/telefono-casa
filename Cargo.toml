@@ -1,0 +1,32 @@
+[profile.dev]
+opt-level = "z"
+
+[profile.release]
+opt-level = "z"
+
+[workspace]
+members = ["dnas/*/zomes/coordinator/*", "dnas/*/zomes/integrity/*"]
+resolver = "2"
+
+[workspace.dependencies]
+hdi = "=0.5.1"
+hdk = "=0.4.1"
+serde = "1.0"
+
+[workspace.dependencies.householding]
+path = "dnas/telefono_casa/zomes/coordinator/householding"
+
+[workspace.dependencies.householding_integrity]
+path = "dnas/telefono_casa/zomes/integrity/householding"
+
+[workspace.dependencies.houseseeking]
+path = "dnas/telefono_casa/zomes/coordinator/houseseeking"
+
+[workspace.dependencies.houseseeking_integrity]
+path = "dnas/telefono_casa/zomes/integrity/houseseeking"
+
+[workspace.dependencies.profile]
+path = "dnas/telefono_casa/zomes/coordinator/profile"
+
+[workspace.dependencies.profile_integrity]
+path = "dnas/telefono_casa/zomes/integrity/profile"
