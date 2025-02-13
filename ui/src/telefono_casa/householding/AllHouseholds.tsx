@@ -32,6 +32,7 @@ const AllHouseholds: FC = () => {
   }, [client]);
 
   const handleSignal: SignalCb = useCallback((signal) => {
+    console.log("received signal:", signal);
     if (!(SignalType.App in signal)) return;
     if (signal.App.zome_name !== "householding") return;
     const payload = signal.App.payload as HouseholdingSignal;

@@ -74,24 +74,8 @@ const HouseholderDetail: FC<HouseholderDetailProps> = ({ householderHash, onHous
 
   return (
     <div>
-      {editing
-        ? (
-          <div>
-            <EditHouseholder
-              originalHouseholderHash={householderHash}
-              currentRecord={record}
-              currentHouseholder={householder}
-              onHouseholderUpdated={async () => {
-                setEditing(false);
-                await fetchHouseholder();
-              }}
-              onEditCanceled={() => setEditing(false)}
-            />
-          </div>
-        )
-        : record
-        ? (
-          <section>
+      {record ? (
+          <div style={{display: "flex", justifyContent: "space-between", backgroundColor: "green"}}>
             <div>
               <span>
                 <strong>Title:</strong>
@@ -129,10 +113,9 @@ const HouseholderDetail: FC<HouseholderDetailProps> = ({ householderHash, onHous
               <span>{new Date(householder?.time_of_posting as number / 1000).toLocaleString()}</span>
             </div>
             <div>
-              <button onClick={() => setEditing(true)}>edit</button>
-              <button onClick={deleteHouseholder}>delete</button>
+              <button onClick={console.log("select")}>I'm interested</button>
             </div>
-          </section>
+          </div>
         )
         : <div className="alert">The requested householder was not found.</div>}
     </div>
