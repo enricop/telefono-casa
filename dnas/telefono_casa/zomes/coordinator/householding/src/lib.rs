@@ -1,3 +1,4 @@
+pub mod all_households;
 pub mod householder;
 use hdk::prelude::*;
 use householding_integrity::*;

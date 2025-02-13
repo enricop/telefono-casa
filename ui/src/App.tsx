@@ -4,8 +4,24 @@ import "./app.css";
 import holochainLogo from "./assets/holochainLogo.svg";
 import { ClientContext } from "./ClientContext";
 
+import { useNavigate } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router";
+
+import SeekingPage from "./SeekingPage";
+
 const App = () => {
   const { error, loading } = useContext(ClientContext);
+
+  let navigate = useNavigate();
+
+  function navtoSeeking() {
+    navigate("/seeking");
+  }
+
+  function navtoHolding() {
+    navigate("/holding");
+  }
+
   return (
     <>
       <div>
@@ -22,14 +38,14 @@ const App = () => {
           Connecting House-Holders with House-Seekers
         </p>
         <div>
-          <button>
+          <button onClick={navtoSeeking}>
             I am an House Seeker
           </button>
-          <button>
+          <button onClick={navtoHolding}>
             I own and House
           </button>
         </div>
-        <>Click on the selection buttons to start</>
+        <p>Click on the selection buttons to start</p>
       </div>
     </>
   );

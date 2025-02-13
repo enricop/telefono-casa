@@ -1,5 +1,6 @@
 pub mod householder;
 use hdi::prelude::*;
+
 pub use householder::*;
 
 #[derive(Serialize, Deserialize)]
@@ -14,6 +15,7 @@ pub enum EntryTypes {
 #[hdk_link_types]
 pub enum LinkTypes {
     HouseholderUpdates,
+    AllHouseholds,
 }
 
 // Validation you perform during the genesis process. Nobody else on the network performs it, only you.
@@ -161,6 +163,9 @@ pub fn validate(op: Op) -> ExternResult<ValidateCallbackResult> {
             LinkTypes::HouseholderUpdates => {
                 validate_create_link_householder_updates(action, base_address, target_address, tag)
             }
+            LinkTypes::AllHouseholds => {
+                validate_create_link_all_households(action, base_address, target_address, tag)
+            }
         },
         FlatOp::RegisterDeleteLink {
             link_type,
@@ -171,6 +176,13 @@ pub fn validate(op: Op) -> ExternResult<ValidateCallbackResult> {
             action,
         } => match link_type {
             LinkTypes::HouseholderUpdates => validate_delete_link_householder_updates(
+                action,
+                original_action,
+                base_address,
+                target_address,
+                tag,
+            ),
+            LinkTypes::AllHouseholds => validate_delete_link_all_households(
                 action,
                 original_action,
                 base_address,
@@ -319,6 +331,12 @@ pub fn validate(op: Op) -> ExternResult<ValidateCallbackResult> {
                         target_address,
                         tag,
                     ),
+                    LinkTypes::AllHouseholds => validate_create_link_all_households(
+                        action,
+                        base_address,
+                        target_address,
+                        tag,
+                    ),
                 },
                 // Complementary validation to the `RegisterDeleteLink` Op, in which the record itself is validated
                 // If you want to optimize performance, you can remove the validation for an entry type here and keep it in `RegisterDeleteLink`
@@ -349,6 +367,13 @@ pub fn validate(op: Op) -> ExternResult<ValidateCallbackResult> {
                     };
                     match link_type {
                         LinkTypes::HouseholderUpdates => validate_delete_link_householder_updates(
+                            action,
+                            create_link.clone(),
+                            base_address,
+                            create_link.target_address,
+                            create_link.tag,
+                        ),
+                        LinkTypes::AllHouseholds => validate_delete_link_all_households(
                             action,
                             create_link.clone(),
                             base_address,

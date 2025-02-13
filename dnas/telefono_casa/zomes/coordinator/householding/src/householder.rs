@@ -7,6 +7,13 @@ pub fn create_householder(householder: Householder) -> ExternResult<Record> {
     let record = get(householder_hash.clone(), GetOptions::default())?.ok_or(wasm_error!(
         WasmErrorInner::Guest("Could not find the newly created Householder".to_string())
     ))?;
+    let path = Path::from("all_households");
+    create_link(
+        path.path_entry_hash()?,
+        householder_hash.clone(),
+        LinkTypes::AllHouseholds,
+        (),
+    )?;
     Ok(record)
 }
 
@@ -115,6 +122,17 @@ pub fn update_householder(input: UpdateHouseholderInput) -> ExternResult<Record>
 
 #[hdk_extern]
 pub fn delete_householder(original_householder_hash: ActionHash) -> ExternResult<ActionHash> {
+    let path = Path::from("all_households");
+    let links = get_links(
+        GetLinksInputBuilder::try_new(path.path_entry_hash()?, LinkTypes::AllHouseholds)?.build(),
+    )?;
+    for link in links {
+        if let Some(hash) = link.target.into_action_hash() {
+            if hash == original_householder_hash {
+                delete_link(link.create_link_hash)?;
+            }
+        }
+    }
     delete_entry(original_householder_hash)
 }
 
