@@ -4,7 +4,9 @@ import "./app.css";
 import { ClientContext } from "./ClientContext";
 
 import AllHouseholds from "./telefono_casa/householding/AllHouseholds";
+import CreateHouseseeker from "./telefono_casa/houseseeking/CreateHouseseeker";
 
+import { NavLink } from "react-router";
 
 const SeekingPage = () => {
   const { error, loading } = useContext(ClientContext);
@@ -16,8 +18,9 @@ const SeekingPage = () => {
       </div>
       <h1>Post an house-seeking announcment</h1>
       <div>
-
+        <CreateHouseseeker />
       </div>
+      <NavLink to="/">Back</NavLink>
     </>
   );
 };

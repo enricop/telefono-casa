@@ -7,6 +7,13 @@ pub fn create_houseseeker(houseseeker: Houseseeker) -> ExternResult<Record> {
     let record = get(houseseeker_hash.clone(), GetOptions::default())?.ok_or(wasm_error!(
         WasmErrorInner::Guest("Could not find the newly created Houseseeker".to_string())
     ))?;
+    let path = Path::from("all_houseseekers");
+    create_link(
+        path.path_entry_hash()?,
+        houseseeker_hash.clone(),
+        LinkTypes::AllHouseseekers,
+        (),
+    )?;
     Ok(record)
 }
 
@@ -115,6 +122,17 @@ pub fn update_houseseeker(input: UpdateHouseseekerInput) -> ExternResult<Record>
 
 #[hdk_extern]
 pub fn delete_houseseeker(original_houseseeker_hash: ActionHash) -> ExternResult<ActionHash> {
+    let path = Path::from("all_houseseekers");
+    let links = get_links(
+        GetLinksInputBuilder::try_new(path.path_entry_hash()?, LinkTypes::AllHouseseekers)?.build(),
+    )?;
+    for link in links {
+        if let Some(hash) = link.target.into_action_hash() {
+            if hash == original_houseseeker_hash {
+                delete_link(link.create_link_hash)?;
+            }
+        }
+    }
     delete_entry(original_houseseeker_hash)
 }
 

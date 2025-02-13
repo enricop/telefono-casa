@@ -6,7 +6,6 @@ import App from "./App.tsx";
 import Routing from "./Routing.tsx";
 
 import ClientProvider from "./ClientContext.tsx";
-import SeekingPage from "./SeekingPage.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

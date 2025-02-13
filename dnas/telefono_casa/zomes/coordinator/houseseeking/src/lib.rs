@@ -1,3 +1,4 @@
+pub mod all_houseseekers;
 pub mod houseseeker;
 use hdk::prelude::*;
 use houseseeking_integrity::*;
