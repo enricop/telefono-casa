@@ -17,7 +17,7 @@ pub fn create_householder(householder: Householder) -> ExternResult<Record> {
     typed_path.ensure()?;
 
     create_link(
-        path.path_entry_hash()?,
+        typed_path.path_entry_hash()?,
         householder_hash.clone(),
         LinkTypes::AllHouseholds,
         (),

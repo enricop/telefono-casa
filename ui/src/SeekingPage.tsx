@@ -12,11 +12,11 @@ const SeekingPage = () => {
   const { error, loading } = useContext(ClientContext);
   return (
     <>
-      <h1>Avilable Houses</h1>
+      <h3>Avilable Houses in your location</h3>
       <div>
         <AllHouseholds />
       </div>
-      <h1>Post an house-seeking announcment</h1>
+      <h3>Post an house-seeking announcement to set your location</h3>
       <div>
         <CreateHouseseeker />
       </div>
