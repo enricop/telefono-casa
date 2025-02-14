@@ -11,11 +11,11 @@ import { NavLink } from "react-router";
 const HoldingPage = () => {
   return (
     <>
-      <h1>Avilable Seekers</h1>
+      <h3>Available House Seekers in your location</h3>
       <div>
         <AllHouseseekers />
       </div>
-      <h1>Post an house-owner announcment</h1>
+      <h3>Post an house-owner advert</h3>
       <div>
         <CreateHouseholder />
       </div>

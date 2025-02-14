@@ -16,6 +16,7 @@ pub enum EntryTypes {
 pub enum LinkTypes {
     HouseholderUpdates,
     AllHouseholds,
+    AllHouseholdsByLocation,
 }
 
 // Validation you perform during the genesis process. Nobody else on the network performs it, only you.
@@ -166,6 +167,10 @@ pub fn validate(op: Op) -> ExternResult<ValidateCallbackResult> {
             LinkTypes::AllHouseholds => {
                 validate_create_link_all_households(action, base_address, target_address, tag)
             }
+            LinkTypes::AllHouseholdsByLocation => {
+                //TODO
+                Ok(ValidateCallbackResult::Valid)
+            }
         },
         FlatOp::RegisterDeleteLink {
             link_type,
@@ -189,6 +194,10 @@ pub fn validate(op: Op) -> ExternResult<ValidateCallbackResult> {
                 target_address,
                 tag,
             ),
+            LinkTypes::AllHouseholdsByLocation => {
+                //TODO
+                Ok(ValidateCallbackResult::Valid)
+            }
         },
         FlatOp::StoreRecord(store_record) => {
             match store_record {
@@ -337,6 +346,10 @@ pub fn validate(op: Op) -> ExternResult<ValidateCallbackResult> {
                         target_address,
                         tag,
                     ),
+                    LinkTypes::AllHouseholdsByLocation => {
+                        //TODO
+                        Ok(ValidateCallbackResult::Valid)
+                    }
                 },
                 // Complementary validation to the `RegisterDeleteLink` Op, in which the record itself is validated
                 // If you want to optimize performance, you can remove the validation for an entry type here and keep it in `RegisterDeleteLink`
@@ -380,6 +393,10 @@ pub fn validate(op: Op) -> ExternResult<ValidateCallbackResult> {
                             create_link.target_address,
                             create_link.tag,
                         ),
+                        LinkTypes::AllHouseholdsByLocation => {
+                            //TODO
+                            Ok(ValidateCallbackResult::Valid)
+                        }
                     }
                 }
                 OpRecord::CreatePrivateEntry { .. } => Ok(ValidateCallbackResult::Valid),

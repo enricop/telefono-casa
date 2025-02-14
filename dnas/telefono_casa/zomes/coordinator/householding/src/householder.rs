@@ -8,16 +8,20 @@ pub fn create_householder(householder: Householder) -> ExternResult<Record> {
         WasmErrorInner::Guest("Could not find the newly created Householder".to_string())
     ))?;
 
-    let pathformat = format!("all_households.{}", householder.location);
-
-    let path = Path::from(pathformat);
-
-    let typed_path = path.clone().typed(LinkTypes::AllHouseholds)?;
-
-    typed_path.ensure()?;
-
+    let pathformat = format!("all_households_by_location.{}", householder.location);
+    let pathbylocation = Path::from(pathformat);
+    let typed_pathbylocation = pathbylocation.clone().typed(LinkTypes::AllHouseholdsByLocation)?;
+    typed_pathbylocation.ensure()?;
     create_link(
-        typed_path.path_entry_hash()?,
+        typed_pathbylocation.path_entry_hash()?,
+        householder_hash.clone(),
+        LinkTypes::AllHouseholdsByLocation,
+        (),
+    )?;
+
+    let path = Path::from("all_households");
+    create_link(
+        path.path_entry_hash()?,
         householder_hash.clone(),
         LinkTypes::AllHouseholds,
         (),

@@ -1,6 +1,8 @@
 import { HolochainError, Link, SignalCb, SignalType } from "@holochain/client";
 import { FC, useCallback, useContext, useEffect, useState } from "react";
 
+import usePolling from "../../usePolling"
+
 import { ClientContext } from "../../ClientContext";
 import HouseholderDetail from "./HouseholderDetail";
 import type { HouseholdingSignal } from "./types";
@@ -10,17 +12,32 @@ const AllHouseholds: FC = () => {
   const [hashes, setHashes] = useState<Uint8Array[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<HolochainError | undefined>();
+  const [location, setLocation] = useState('');
 
-  const fetchHouseholders = useCallback(async () => {
+	const lastUpdated = usePolling(fetchItems)
+
+  async function fetchItems(abortSignal: AbortSignal) {
     setLoading(true);
     try {
-      const links: Link[] = await client?.callZome({
-        cap_secret: null,
-        role_name: "telefono_casa",
-        zome_name: "householding",
-        fn_name: "get_all_households",
-        payload: null,
-      });
+      let links: Link[] = [];
+      if (location) {
+        links = await client?.callZome({
+          cap_secret: null,
+          role_name: "telefono_casa",
+          zome_name: "householding",
+          fn_name: "get_all_households_in_location",
+          payload: location,
+        });
+      } else {
+        links = await client?.callZome({
+          cap_secret: null,
+          role_name: "telefono_casa",
+          zome_name: "householding",
+          fn_name: "get_all_households",
+          payload: null,
+        });
+      }
+      
       if (links?.length) {
         setHashes(links.map((l) => l.target));
       }
@@ -29,7 +46,39 @@ const AllHouseholds: FC = () => {
     } finally {
       setLoading(false);
     }
-  }, [client]);
+  }
+
+  const fetchHouseholders = useCallback(async () => {
+    setLoading(true);
+    try {
+      let links: Link[] = [];
+      if (location) {
+        links = await client?.callZome({
+          cap_secret: null,
+          role_name: "telefono_casa",
+          zome_name: "householding",
+          fn_name: "get_all_households_in_location",
+          payload: location,
+        });
+      } else {
+        links = await client?.callZome({
+          cap_secret: null,
+          role_name: "telefono_casa",
+          zome_name: "householding",
+          fn_name: "get_all_households",
+          payload: null,
+        });
+      }
+      
+      if (links?.length) {
+        setHashes(links.map((l) => l.target));
+      }
+    } catch (e) {
+      setError(e as HolochainError);
+    } finally {
+      setLoading(false);
+    }
+  }, [client, ]);
 
   const handleSignal: SignalCb = useCallback((signal) => {
     console.log("received signal:", signal);
@@ -44,7 +93,7 @@ const AllHouseholds: FC = () => {
   useEffect(() => {
     fetchHouseholders();
     client?.on("signal", handleSignal);
-  }, [client, handleSignal, fetchHouseholders]);
+  }, [client, handleSignal, fetchHouseholders, location]);
 
   if (loading) {
     return <progress />;
@@ -52,6 +101,16 @@ const AllHouseholds: FC = () => {
 
   return (
     <div>
+      <div>
+        {
+        /*
+        <label>
+          Set your location:
+          <input value={location} onChange={e => setLocation(e.target.value)} />
+        </label>
+        */
+        }
+      </div>
       {error ? <div className="alert">Error fetching the householders: {error.message}</div> : hashes.length > 0
         ? (
           <div>

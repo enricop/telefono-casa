@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import "./app.css";
 import { ClientContext } from "./ClientContext";
@@ -10,13 +10,14 @@ import { NavLink } from "react-router";
 
 const SeekingPage = () => {
   const { error, loading } = useContext(ClientContext);
+   
   return (
     <>
-      <h3>Avilable Houses in your location</h3>
+      <h3>Available Houses in your location</h3>
       <div>
-        <AllHouseholds />
+        <AllHouseholds location={location} />
       </div>
-      <h3>Post an house-seeking announcement to set your location</h3>
+      <h3>Post an house-seeking advert to set a specific location</h3>
       <div>
         <CreateHouseseeker />
       </div>

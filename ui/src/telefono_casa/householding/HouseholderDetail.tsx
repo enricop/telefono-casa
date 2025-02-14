@@ -75,7 +75,7 @@ const HouseholderDetail: FC<HouseholderDetailProps> = ({ householderHash, onHous
   return (
     <div>
       {record ? (
-          <div style={{display: "flex", justifyContent: "space-between", backgroundColor: "green"}}>
+          <section style={{display: "flex", justifyContent: "space-between" }}>
             <div>
               <span>
                 <strong>Title:</strong>
@@ -115,7 +115,7 @@ const HouseholderDetail: FC<HouseholderDetailProps> = ({ householderHash, onHous
             <div>
               <button onClick={console.log("select")}>I'm interested</button>
             </div>
-          </div>
+          </section>
         )
         : <div className="alert">The requested householder was not found.</div>}
     </div>

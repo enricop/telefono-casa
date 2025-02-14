@@ -91,7 +91,7 @@ const HouseseekerDetail: FC<HouseseekerDetailProps> = ({ houseseekerHash, onHous
         )
         : record
         ? (
-          <section>
+          <section style={{display: "flex", justifyContent: "space-between" }}>
             <div>
               <span>
                 <strong>Location:</strong>
@@ -111,8 +111,7 @@ const HouseseekerDetail: FC<HouseseekerDetailProps> = ({ houseseekerHash, onHous
               <span>{new Date(houseseeker?.date_of_posting as number / 1000).toLocaleString()}</span>
             </div>
             <div>
-              <button onClick={() => setEditing(true)}>edit</button>
-              <button onClick={deleteHouseseeker}>delete</button>
+              <button onClick={console.log("select")}>I'm interested</button>
             </div>
           </section>
         )
