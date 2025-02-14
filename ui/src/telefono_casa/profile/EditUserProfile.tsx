@@ -25,7 +25,6 @@ const EditUserProfile: FC<EditUserProfileProps> = ({
       first_name: firstName,
       last_name: lastName,
       email_address: emailAddress,
-      password: currentUserProfile?.password,
     };
     try {
       const updateRecord = await client?.callZome({
@@ -53,7 +52,6 @@ const EditUserProfile: FC<EditUserProfileProps> = ({
     firstName,
     lastName,
     emailAddress,
-    currentUserProfile?.password,
   ]);
 
   useEffect(() => {

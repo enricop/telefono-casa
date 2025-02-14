@@ -7,7 +7,15 @@ pub fn create_householder(householder: Householder) -> ExternResult<Record> {
     let record = get(householder_hash.clone(), GetOptions::default())?.ok_or(wasm_error!(
         WasmErrorInner::Guest("Could not find the newly created Householder".to_string())
     ))?;
-    let path = Path::from("all_households");
+
+    let pathformat = format!("all_households.{}", householder.location);
+
+    let path = Path::from(pathformat);
+
+    let typed_path = path.clone().typed(LinkTypes::AllHouseholds)?;
+
+    typed_path.ensure()?;
+
     create_link(
         path.path_entry_hash()?,
         householder_hash.clone(),

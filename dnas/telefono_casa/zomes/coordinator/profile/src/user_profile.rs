@@ -1,3 +1,4 @@
+use hash_type::Agent;
 use hdk::prelude::*;
 use profile_integrity::*;
 
@@ -112,4 +113,25 @@ pub fn update_user_profile(input: UpdateUserProfileInput) -> ExternResult<Record
             WasmErrorInner::Guest("Could not find the newly updated UserProfile".to_string())
         ))?;
     Ok(record)
+}
+
+#[hdk_extern]
+pub fn get_original_user_profile_for_agent(agent: AgentPubKey) -> ExternResult<Option<ActionHash>> {
+
+    let filter = ChainQueryFilter::new().entry_type(UnitEntryTypes::UserProfile.try_into()?)
+                                        .action_type(ActionType::Create);
+
+    let activity = get_agent_activity(agent, filter, ActivityRequest::Full)?;
+
+    let valid_activity = activity.valid_activity;
+    let profile_action_hashes: Vec<ActionHash> = valid_activity
+                                            .into_iter()
+                                            .map(|(_sequence_number, action_hash)| action_hash)
+                                            .collect();
+
+    let Some(original_action_hash) = profile_action_hashes.first() else {
+        return Ok(None);
+    };
+
+    Ok(Some(original_action_hash.clone()))
 }

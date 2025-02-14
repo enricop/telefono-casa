@@ -4,7 +4,7 @@ import { FC, useContext, useEffect, useState } from "react";
 import { ClientContext } from "../../ClientContext";
 import type { UserProfile } from "./types";
 
-const CreateUserProfile: FC<CreateUserProfileProps> = ({ onUserProfileCreated, password }) => {
+const CreateUserProfile: FC<CreateUserProfileProps> = ({ onUserProfileCreated }) => {
   const { client } = useContext(ClientContext);
   const [username, setUsername] = useState<string>("");
   const [firstName, setFirstName] = useState<string>("");
@@ -15,10 +15,9 @@ const CreateUserProfile: FC<CreateUserProfileProps> = ({ onUserProfileCreated, p
   const createUserProfile = async () => {
     const userProfileEntry: UserProfile = {
       username: username!,
-      first_name: firstName,
-      last_name: lastName,
-      email_address: emailAddress!,
-      password: password!,
+      first_name: firstName ? firstName : undefined,
+      last_name: lastName ? lastName : undefined,
+      email_address: emailAddress!
     };
     try {
       const record = await client?.callZome({
@@ -75,7 +74,6 @@ const CreateUserProfile: FC<CreateUserProfileProps> = ({ onUserProfileCreated, p
 
 interface CreateUserProfileProps {
   onUserProfileCreated?: (hash?: Uint8Array) => void;
-  password: Uint8Array;
 }
 
 export default CreateUserProfile;

@@ -6,8 +6,7 @@ pub struct UserProfile {
     pub username: String,
     pub first_name: Option<String>,
     pub last_name: Option<String>,
-    pub email_address: String,
-    pub password: ExternalHash,
+    pub email_address: String
 }
 
 pub fn validate_create_user_profile(

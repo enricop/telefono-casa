@@ -6,7 +6,7 @@ import { ClientContext } from "../../ClientContext";
 import EditUserProfile from "./EditUserProfile";
 import type { UserProfile } from "./types";
 
-const UserProfileDetail: FC<UserProfileDetailProps> = ({ userProfileHash, onUserProfileDeleted }) => {
+const UserProfileDetail: FC<UserProfileDetailProps> = ({ userProfileHash }) => {
   const { client } = useContext(ClientContext);
   const [record, setRecord] = useState<Record | undefined>(undefined);
   const [userProfile, setUserProfile] = useState<UserProfile | undefined>(undefined);
@@ -110,7 +110,6 @@ const UserProfileDetail: FC<UserProfileDetailProps> = ({ userProfileHash, onUser
 
 interface UserProfileDetailProps {
   userProfileHash: Uint8Array;
-  onUserProfileDeleted?: (userProfileHash: Uint8Array) => void;
 }
 
 export default UserProfileDetail;
