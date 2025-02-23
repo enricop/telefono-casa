@@ -23,7 +23,7 @@ The application helps people living in a *Commune* to have a sense of *belonging
 
 People using the app may have a profile in their own family, and by discovering and voting other families, they contribute to the creation of a P2P neighbourhood.
 
-This network then allows people making 1-to-1 *VoIP* calls once there is a common *consensus* that they live in that village.
+This network then allows people making 1-to-1 *VoIP* calls once they are in a family that has the at least the same votes of the callee family.
 
 ### Inspiration
 
