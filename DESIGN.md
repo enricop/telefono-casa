@@ -1,14 +1,6 @@
 
 # Telefono-Casa App
 
-### Base usage
-
-The application helps people living in a *Commune* to have a sense of *belonging* to that local area by gathering them as agents in a P2P network that is organized in smaller *Villages*.
-
-People using the app may have a profile of their own house, and by discovering and voting other houses, they contribute to the creation of a P2P neighbourhood.
-
-This network then allows people making 1-to-1 *VoIP* calls once there is a common *consensus* that they live in that village.
-
 ### Intent
 
 Being part of a village is a choice that goes beyond the desire of belonging to a group of people, which represents only an aspect, as important as it is, of active participation in a community.
@@ -25,6 +17,14 @@ Initial intent of the app is letting users know there is actually someone living
 
 ![Village](https://upload.wikimedia.org/wikipedia/commons/1/14/Tassignano-picture.jpg)
 
+### Basic usage
+
+The application helps people living in a *Commune* to have a sense of *belonging* to that local area by gathering them as agents in a P2P network that is organized in smaller *Villages*.
+
+People using the app may have a profile in their own family, and by discovering and voting other families, they contribute to the creation of a P2P neighbourhood.
+
+This network then allows people making 1-to-1 *VoIP* calls once there is a common *consensus* that they live in that village.
+
 ### Inspiration
 
 https://sharedearth.com/
@@ -36,6 +36,14 @@ https://help.nextdoor.com/s/article/About-moderation
 https://whitepaper.neighbourhoods.network/white-paper-2.0/neighbourhoods-a-web-3.0-groupware-framework
 
 https://hackmd.io/@ZnyUaFAfRNS5sm4ld0NsOA/HyEtkjDFke
+
+### User Stories Design
+
+- [User Stories](./USERSTORIES.md)
+
+### Entities Design
+
+- [Holochain Entities](./ENTITIES.md)
 
 ### Glossary
 
