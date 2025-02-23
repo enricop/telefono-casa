@@ -39,6 +39,6 @@ https://hackmd.io/@ZnyUaFAfRNS5sm4ld0NsOA/HyEtkjDFke
 
 ### Glossary
 
- - Village: [https://it.wikipedia.org/wiki/Comune](https://it.wikipedia.org/wiki/Comune)
+ - Commune: [https://it.wikipedia.org/wiki/Comune](https://it.wikipedia.org/wiki/Comune)
  
  - Village: [https://it.wikipedia.org/wiki/Frazione_(geografia)](https://it.wikipedia.org/wiki/Frazione_(geografia))
