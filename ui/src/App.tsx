@@ -112,7 +112,7 @@ const App = () => {
           {loading ? "connecting..." : (error ? error.message : "Client is connected.")}
         </div>
         <h3>
-          Connecting House-Holders with House-Seekers
+          Connecting House-Owners with House-Seekers
         </h3>
         <div style={{display: "flex", justifyContent: "space-between"}}>
           <button onClick={navtoSeeking}>
