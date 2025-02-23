@@ -7,7 +7,7 @@ Being part of a village is a choice that goes beyond the desire of belonging to 
 
 The keyword is 'community', the construction of a strong bond of trust and knowledge between families of a village.
 
-A network of families. A sense of community.
+A network of families. A sense of fraternity.
 
 It is an alliance that leads us to create well-being for the territory, in the perspective of a model based on the sense of co-responsibility and interdependence.
 
@@ -27,23 +27,23 @@ This network then allows people making 1-to-1 *VoIP* calls once they are in a fa
 
 ### Inspiration
 
-https://sharedearth.com/
+- [Shared Earth portal](https://sharedearth.com/)
 
-https://github.com/matthme/presence
+- [Presence holochain app](https://github.com/matthme/presence
 
-https://help.nextdoor.com/s/article/About-moderation
+- [Nextdoor app](https://help.nextdoor.com/s/article/About-moderation)
 
-https://whitepaper.neighbourhoods.network/white-paper-2.0/neighbourhoods-a-web-3.0-groupware-framework
+- [Holochain Neighbourhoods network design](https://whitepaper.neighbourhoods.network/white-paper-2.0/neighbourhoods-a-web-3.0-groupware-framework)
 
-https://hackmd.io/@ZnyUaFAfRNS5sm4ld0NsOA/HyEtkjDFke
+- [Holochain hackathon app design](https://hackmd.io/@ZnyUaFAfRNS5sm4ld0NsOA/HyEtkjDFke)
 
 ### User Stories Design
 
-- [User Stories](./USERSTORIES.md)
+[User Stories](./USERSTORIES.md)
 
 ### Entities Design
 
-- [Holochain Entities](./ENTITIES.md)
+[Holochain Entities](./ENTITIES.md)
 
 ### Glossary
 

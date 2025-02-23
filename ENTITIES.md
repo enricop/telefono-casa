@@ -1,6 +1,19 @@
 
 # Telefono-Casa Entities
 
+## Entities Structure
+
+```mermaid
+graph TD;
+  all_villages --AllVillages --> all_topics.villageA
+  all_topics.villageA --AllFamilies --> FamilyAA
+  all_topics.villageA --AllFamilies --> FamilyAB
+  all_villages --AllVillages --> all_topics.villageB
+  all_topics.villageB --AllFamilies --> FamilyBA
+  all_topics.villageB --AllFamilies --> FamilyBB
+```
+
+
 ### User Profile
 
 ```rust

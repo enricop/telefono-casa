@@ -11,26 +11,34 @@
 
 - Commune officer: Linux/Windows desktop
 
-### End-user stories
+### End-user agents stories
 
-- End-user are agents that belongs to a family
+- End-user are agents that belongs to a family, only one family.
 
-- Create a profile. (as a link to their agent pubkey)
+- Can create a profile. (as a link to their agent pubkey)
 
 - Can join a Commune by a [membrane proof](https://developer.holochain.org/resources/glossary/#membrane-proof) (receiving a signed authorization by a commune officer)
 
-- Can join a Family by a [capability-grant](https://developer.holochain.org/resources/glossary/#capability-grant) (receiving an invitation with a secret by an house holder)
+- Can join a Family by a [capability-grant](https://developer.holochain.org/resources/glossary/#capability-grant) (receiving an invitation with a secret by an house-holder)
 
 - Find all the end-users in the village organized by family name
 
 - Can vote an existing family
 
-- Can VoIP call other end-users of families that have a least the same number of votes of the caller family. The callee family should belong to the same village.
+- Can VoIP call any end-user of families that have a least the same number of votes of the caller family. The callee family should belong to the same village.
 
-### House Holders stories
+- Can VoIP call any house-holders of the same village.
 
+- Can VoIP call any village chiefs.
 
-### Village Chiefs stories
+### House-holders agents stories
 
+- Have the same base capabilities of end-users agests.
 
-### Commune Officer stories
+### Village Chiefs agents stories
+
+- Have the same base capabilities of house-holders agests.
+
+### Commune Officer agents stories
+
+- Have the same base capabilities of village-chiefs agests.
