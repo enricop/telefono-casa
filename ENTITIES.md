@@ -62,7 +62,7 @@ pub struct AddUserToFamily {
     pub agent: AgentPubKey,
     pub family_hash: ActionHash
 }
-pub struct RemoveUserFamily {
+pub struct RemoveUserFromFamily {
     pub agent: AgentPubKey,
     pub family_hash: ActionHash
 }

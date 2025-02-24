@@ -7,7 +7,7 @@
 
 - House holders: https://sailfishos.org/ (conductor on the device) (rust client)
 
-- Village chiefs: https://en.wikipedia.org/wiki/Android (p2p Shipyard - conductor on commune host) (javascript client)
+- Village chiefs: https://en.wikipedia.org/wiki/Android (conductor on commune host) (typescript client)
 
 - Commune officer: Linux/Windows desktop
 
@@ -17,17 +17,17 @@
 
 - Can create a profile. (as a link to their agent pubkey)
 
-- Can join a Commune by a [membrane proof](https://developer.holochain.org/resources/glossary/#membrane-proof) (receiving a signed authorization by a commune officer)
+- Find all the villages in the commune.
 
-- Can join a Family by a [capability-grant](https://developer.holochain.org/resources/glossary/#capability-grant) (receiving an invitation with a secret by an house-holder)
+- Can join a Commune by a [membrane proof](https://developer.holochain.org/resources/glossary/#membrane-proof) received as a signed authorization by a commune officer.
 
-- Find all the end-users in the village organized by family name
+- Find all the families in the village.
 
-- Can vote an existing family
+- Can join a Family by a [capability-grant](https://developer.holochain.org/resources/glossary/#capability-grant) received as an invitation with a secret by an house-holder.
+
+- Can vote an existing family, not their own one.
 
 - Can VoIP call any end-user of families that have a least the same number of votes of the caller family. The callee family should belong to the same village.
-
-- Can VoIP call any house-holders of the same village.
 
 - Can VoIP call any village chiefs.
 

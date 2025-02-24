@@ -29,13 +29,17 @@ This network then allows people making 1-to-1 *VoIP* calls once they are in a fa
 
 - [Shared Earth portal](https://sharedearth.com/)
 
-- [Presence holochain app](https://github.com/matthme/presence
+- [Presence holochain app](https://github.com/matthme/presence)
 
 - [Nextdoor app](https://help.nextdoor.com/s/article/About-moderation)
 
 - [Holochain Neighbourhoods network design](https://whitepaper.neighbourhoods.network/white-paper-2.0/neighbourhoods-a-web-3.0-groupware-framework)
 
 - [Holochain hackathon app design](https://hackmd.io/@ZnyUaFAfRNS5sm4ld0NsOA/HyEtkjDFke)
+
+### DNA properties
+
+The only DNA property is the Commune location including its name.
 
 ### User Stories Design
 
@@ -44,6 +48,10 @@ This network then allows people making 1-to-1 *VoIP* calls once they are in a fa
 ### Entities Design
 
 [Holochain Entities](./ENTITIES.md)
+
+### Links Design
+
+[Holochain Links](./LINKS.md)
 
 ### Glossary
 
