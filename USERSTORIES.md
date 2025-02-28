@@ -45,6 +45,8 @@
 
 - Can create an house.
 
+- Can assign a family to an house.
+
 - TODO
 
 ### Commune Officer agents stories
@@ -52,6 +54,8 @@
 - Have the same base capabilities of village-chiefs agests.
 
 - Can create a village.
+
+- Can grant a user to be a village chief or community activator.
 
 - TODO
 
