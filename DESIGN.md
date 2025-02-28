@@ -39,7 +39,9 @@ This network then allows people making 1-to-1 *VoIP* calls once they are in a fa
 
 ### DNA properties
 
-The only DNA property is the Commune location including its name.
+- the Commune location including its name.
+
+- the public key of the Commune officer agent.
 
 ### User Stories Design
 

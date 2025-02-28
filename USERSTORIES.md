@@ -1,15 +1,15 @@
 
 # Telefono-Casa User-Stories
 
-### Target operating-system by user type:
+## Kinds of Agents:
 
-- End users: https://en.wikipedia.org/wiki/Series_30%2B (conductor on the device!?)
+- End users: members of a familiy
 
-- House holders: https://sailfishos.org/ (conductor on the device) (rust client)
+- House holder: head of a family and owner of an house
 
-- Village chiefs: https://en.wikipedia.org/wiki/Android (conductor on commune host) (typescript client)
+- Village chiefs.
 
-- Commune officer: Linux/Windows desktop
+- Commune officer.
 
 ### End-user agents stories
 
@@ -35,10 +35,26 @@
 
 - Have the same base capabilities of end-users agests.
 
+- TODO
+
 ### Village Chiefs agents stories
 
 - Have the same base capabilities of house-holders agests.
 
+- TODO
+
 ### Commune Officer agents stories
 
 - Have the same base capabilities of village-chiefs agests.
+
+- TODO
+
+### Target operating-system by user type:
+
+- End users: https://en.wikipedia.org/wiki/Series_30%2B (conductor on the device!?)
+
+- House holders: https://sailfishos.org/ (conductor on the device) (rust client)
+
+- Village chiefs: https://en.wikipedia.org/wiki/Android (conductor on commune host) (typescript client)
+
+- Commune officer: Linux/Windows desktop
