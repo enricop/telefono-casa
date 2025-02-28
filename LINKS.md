@@ -21,4 +21,4 @@ Since an end-user knows its village name, it will be able to discover families i
 
 The houldholder is the agent that creates a family entity.
 
-A village chief can assign a family to an house by creating a link from an house to a family.
+A village chief can assign a family to an house by creating a link from a familiy entity to an house entity.
