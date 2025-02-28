@@ -5,15 +5,17 @@
 
 ```mermaid
 graph TD;   
-  all_villages --AllVillages --> all_topics.villageA
-  all_topics.villageA --AllFamilies --> FamilyAA
-  all_topics.villageA --AllFamilies --> FamilyAB
+  all_villages --AllVillages --> villageA
+  communityActivatorA --IsResposibleFor --> villageA
+  villageA --AllFamilies --> FamilyAA
+  villageA --AllFamilies --> FamilyAB
   FamilyAB --AllMembers --> UserABA
   FamilyAB --AllMembers --> UserABB
   FamilyAB --AllMembers --> UserABC
-  all_villages --AllVillages --> all_topics.villageB
-  all_topics.villageB --AllFamilies --> FamilyBA
-  all_topics.villageB --AllFamilies --> FamilyBB
+  all_villages --AllVillages --> villageB
+  communityActivatorB --IsResposibleFor --> villageB
+  villageB --AllFamilies --> FamilyBA
+  villageB --AllFamilies --> FamilyBB
   FamilyBB --AllMembers --> UserBBA
   FamilyBB --AllMembers --> UserBBB
   FamilyBB --AllMembers --> UserBBC

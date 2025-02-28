@@ -7,7 +7,7 @@
 
 - House holder: head of a family and owner of an house
 
-- Village chiefs.
+- "Village chiefs" OR "Community activators"
 
 - Commune officer.
 
@@ -35,17 +35,23 @@
 
 - Have the same base capabilities of end-users agests.
 
+- Can create a family
+
 - TODO
 
-### Village Chiefs agents stories
+### Village Chiefs OR Community Activators agents stories
 
 - Have the same base capabilities of house-holders agests.
+
+- Can create an house.
 
 - TODO
 
 ### Commune Officer agents stories
 
 - Have the same base capabilities of village-chiefs agests.
+
+- Can create a village.
 
 - TODO
 
